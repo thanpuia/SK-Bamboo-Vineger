@@ -167,7 +167,7 @@
 						</span>
 						<div class="desc">
 							<h3><a href="#">Brand Identity</a></h3>
-							<p>This is a text place holder. Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+							<p id="brandIdentity">text</p>
 						</div>
 					</div>
 				</div>
@@ -178,7 +178,7 @@
 						</span>
 						<div class="desc">
 							<h3><a href="#">Goals</a></h3>
-							<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+							<p id="goals">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 						</div>
 					</div>
 				</div>
@@ -189,7 +189,7 @@
 						</span>
 						<div class="desc">
 							<h3><a href="#">Vision</a></h3>
-							<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+							<p id="vision">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 						</div>
 					</div>
 				</div>
@@ -200,7 +200,7 @@
 			<div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
 					<h2>Work</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<p id="work">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -492,6 +492,57 @@
 	<script src="js/jquery.countTo.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+
+
+	<!-- FIREBASE -->
+	
+<script src="./js/functions.js"> </script>
+
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD0P0l-UidsKakTfhkA7Uaf-Xpfb3kp12s",
+    authDomain: "hosting-80ad9.firebaseapp.com",
+    databaseURL: "https://hosting-80ad9.firebaseio.com",
+    projectId: "hosting-80ad9",
+    storageBucket: "hosting-80ad9.appspot.com",
+    messagingSenderId: "978165500567",
+    appId: "1:978165500567:web:6c9313a74a36ef1f67f7d2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+
+  //Brand Identity
+  var starCountRef = firebase.database().ref('content/index/brandIdentity/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("brandIdentity").innerHTML = data;
+});
+  //Goals
+  var starCountRef = firebase.database().ref('content/index/goals/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("goals").innerHTML = data;
+});
+//Vision
+var starCountRef = firebase.database().ref('content/index/vision/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("vision").innerHTML = data;
+});
+  //Work
+  var starCountRef = firebase.database().ref('content/index/work/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("work").innerHTML = data;
+
+});
+</script>
 
 	</body>
 </html>

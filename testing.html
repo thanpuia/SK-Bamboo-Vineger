@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <meta charset="UTF-8">
+ 
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <main>
+        <form>
+            <label for="brandIdentity">Brand Identity</label><br>
+            <textarea name="brandIdentity" id="brandIdentity">    </textarea><br>
+            <button id="brandIdentityButton">Update</button>
+        </form>
+      
+        <br><br>
+        <form>
+            <label for="goals">Goals</label><br>
+            <textarea name="goals" id="goals">    </textarea><br>
+            <button id="goalsButton">Update</button>
+        </form>
+
+        <br><br>
+        <form>
+            <label for="vision">Vision</label><br>
+            <textarea name="vision" id="vision">    </textarea><br>
+            <button id="visionButton">Update</button>
+        </form>
+
+        <br><br>
+        <form>
+            <label for="work">Work</label><br>
+            <textarea name="work" id="work">    </textarea><br>
+            <button id="workButton">Update</button>
+        </form>
+    </main>
+
+
+
+
+<script src="./js/functions.js"> </script>
+
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD0P0l-UidsKakTfhkA7Uaf-Xpfb3kp12s",
+    authDomain: "hosting-80ad9.firebaseapp.com",
+    databaseURL: "https://hosting-80ad9.firebaseio.com",
+    projectId: "hosting-80ad9",
+    storageBucket: "hosting-80ad9.appspot.com",
+    messagingSenderId: "978165500567",
+    appId: "1:978165500567:web:6c9313a74a36ef1f67f7d2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+
+  //Brand Identity
+  var starCountRef = firebase.database().ref('content/index/brandIdentity/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("brandIdentity").value = data;
+});
+
+ //Goals
+ var starCountRef = firebase.database().ref('content/index/goals/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("goals").value = data;
+});
+
+  //Vision
+  var starCountRef = firebase.database().ref('content/index/vision/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("vision").value = data;
+});
+
+ //Work
+ var starCountRef = firebase.database().ref('content/index/work/body');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    document.getElementById("work").value = data;
+});
+
+</script>
+
+
+</body>
+</html>
