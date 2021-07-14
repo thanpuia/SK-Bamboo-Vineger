@@ -494,9 +494,42 @@
 	<script src="js/main.js"></script>
 
 
+	<form>
+		<input type="text" name="login" id="login">
+		<button id="loginButton">Login</button>
+	</form>
 
+ 	
 	<!-- FIREBASE -->
-	
+<script>
+ 
+	const login = document.getElementById("login");
+	const loginButton = document.getElementById("loginButton");
+
+	loginButton.addEventListener('click',(e) => {
+    e.preventDefault();
+    
+    var starCountRef = firebase.database().ref('password/mypassword');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+
+    if(data==login.value){
+        //login
+		document.getElementById("login").value = "correct";
+		// Simulate a mouse click:
+		window.location.href = "/testing.html";
+
+    }else{
+        //not login
+        document.getElementById("login").value = "in correct";
+
+    }
+
+
+    });
+});
+
+</script>
 <script src="./js/functions.js"> </script>
 
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>

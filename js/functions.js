@@ -10,6 +10,7 @@ const visionButton = document.getElementById("visionButton");
 const work = document.getElementById("work");
 const workButton = document.getElementById("workButton");
 
+
 brandIdentityButton.addEventListener('click',(e) => {
     e.preventDefault();
     const newData ={
@@ -51,6 +52,8 @@ workButton.addEventListener('click',(e) => {
     updates['/content/index/work'] = newData;
     database.ref().update(updates);
 });
+ 
+
 //add new
 //addButton.addEventListener('click',(e) => {
 //  e.preventDefault();
