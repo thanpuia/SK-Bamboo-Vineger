@@ -454,6 +454,8 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
+							<a href="testing.html">Go</a>
+
 						<small class="block">&copy; SK Bamboo Vineger. All Rights Reserved.</small> 
 						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
 					</p>
@@ -467,12 +469,20 @@
 					</p>
 				</div>
 			</div>
+			<form>
+					<input type="text" name="login" id="login">
+					<button id="loginButton">Login</button>
+				</form>
+				<a href="testing.html">Go</a>
+
+				
 		</footer>
 	</div><!-- END container-wrap -->
 	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+		
 	</div>
 	
 	<!-- jQuery -->
@@ -495,8 +505,37 @@
 
 
 
+ 	
 	<!-- FIREBASE -->
-	
+<script>
+ 
+	const login = document.getElementById("login");
+	const loginButton = document.getElementById("loginButton");
+
+	loginButton.addEventListener('click',(e) => {
+    e.preventDefault();
+    
+    var starCountRef = firebase.database().ref('password/mypassword');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+
+    if(data==login.value){
+        //login
+		document.getElementById("login").value = "correct";
+		// Simulate a mouse click:
+		window.location.href = "/testing.html";
+
+    }else{
+        //not login
+        document.getElementById("login").value = "in correct";
+
+    }
+
+
+    });
+});
+
+</script>
 <script src="./js/functions.js"> </script>
 
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
